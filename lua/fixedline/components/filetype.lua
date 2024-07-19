@@ -1,8 +1,11 @@
+local has_webdevicons, webdevicons = pcall(require, 'nvim-web-devicons')
+
 return {
   str = function()
     local filetype = vim.bo.filetype
-    local icon = require('nvim-web-devicons').get_icon_by_filetype(filetype)
-      or ''
+    local icon = (
+      has_webdevicons and webdevicons.get_icon_by_filetype(filetype)
+    ) or ''
     return string.format('%s  %s', icon, filetype)
   end,
 }

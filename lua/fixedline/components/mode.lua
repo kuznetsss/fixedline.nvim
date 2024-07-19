@@ -1,14 +1,14 @@
 local modes_map = setmetatable({
-  n = 'NORMAL',
-  v = 'VISUAL',
-  s = 'SELECT',
-  i = 'INSERT',
-  R = 'REPLACE',
-  c = 'COMMAND',
-  r = 'PROMPT',
-  ['!'] = 'SHELL',
-  t = 'TERMINAL',
-  [''] = 'CTRL-V',
+  n = ' NORMAL',
+  v = ' VISUAL',
+  s = ' SELECT',
+  i = ' INSERT',
+  R = ' REPLACE',
+  c = ' COMMAND',
+  r = ' PROMPT',
+  ['!'] = ' SHELL',
+  t = ' TERMINAL',
+  [''] = ' CTRL-V',
 }, {
   __index = function(_, key)
     return key
@@ -18,6 +18,6 @@ local modes_map = setmetatable({
 return {
   str = function()
     local mode = vim.fn.mode()
-    return string.format(' %s ', modes_map[mode])
+    return modes_map[mode]
   end,
 }
