@@ -1,8 +1,9 @@
 return {
-  mode = require 'fixedline.components.mode',
-  ro = require 'fixedline.components.readonly',
-  modified = require 'fixedline.components.buffer_modified',
-  filetype = require 'fixedline.components.filetype',
-  git = require 'fixedline.components.git',
-  diagnostic = require 'fixedline.components.diagnostics',
+    mode = require 'fixedline.components.mode',
+    ro = require 'fixedline.components.readonly',
+    modified = require 'fixedline.components.buffer_modified',
+    filetype = require 'fixedline.components.filetype',
+    git = require 'fixedline.components.git',
+    diagnostic = require 'fixedline.components.diagnostics',
+    copilot = require 'fixedline.components.copilot',
 }

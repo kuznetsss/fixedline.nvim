@@ -1,8 +1,8 @@
 return {
     str = function()
         if vim.bo.modified then
-            return ' + '
+            return ' +'
         end
-        return '   '
+        return '  '
     end
 }

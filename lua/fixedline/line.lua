@@ -8,8 +8,9 @@ local make_active = function(win_id)
     components.modified.str(),
     components.git.str(),
     '%=',
+    components.copilot.str(win_id),
     components.diagnostic.str(win_id),
-    '    ',
+    '   ',
     components.filetype.str(),
     '  %l : %c | %p%% ',
   }
