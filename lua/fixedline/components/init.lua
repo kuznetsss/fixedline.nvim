@@ -1,9 +1,10 @@
 return {
-    mode = require 'fixedline.components.mode',
-    ro = require 'fixedline.components.readonly',
-    modified = require 'fixedline.components.buffer_modified',
+    copilot = require 'fixedline.components.copilot',
+    diagnostic = require 'fixedline.components.diagnostics',
     filetype = require 'fixedline.components.filetype',
     git = require 'fixedline.components.git',
-    diagnostic = require 'fixedline.components.diagnostics',
-    copilot = require 'fixedline.components.copilot',
+    mode = require 'fixedline.components.mode',
+    modified = require 'fixedline.components.buffer_modified',
+    recording_macro = require'fixedline.components.recording_macro',
+    ro = require 'fixedline.components.readonly',
 }
