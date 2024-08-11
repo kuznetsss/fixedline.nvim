@@ -1,4 +1,4 @@
-local count_to_string = require'fixedline.utils'.count_to_string
+local count_to_string = require('fixedline.utils').count_to_string
 
 return {
   str = function()
