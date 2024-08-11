@@ -1,8 +1,9 @@
 return {
     str = function()
         if vim.bo.modified then
-            return ' +'
+            return ' %#FixedLine_BufferModified#󰆓'
         end
         return '  '
     end
 }
+

@@ -6,6 +6,6 @@ return {
     local icon = (
       has_webdevicons and webdevicons.get_icon_by_filetype(filetype)
     ) or ''
-    return string.format(' %s  %s', icon, filetype)
+    return string.format(' %%#Fixedline_Filetype#%s  %s', icon, filetype)
   end,
 }

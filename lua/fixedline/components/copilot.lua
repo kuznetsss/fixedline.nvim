@@ -1,4 +1,4 @@
-local utils = require'fixedline.utils'
+local utils = require 'fixedline.utils'
 
 local has_copilot, copilot = pcall(require, 'copilot.client')
 local empty = '   '
@@ -9,6 +9,6 @@ return {
             return empty
         end
         local buf_id = utils.get_buf_id(win_id)
-        return copilot.buf_is_attached(buf_id) and '  ' or empty
-    end
+        return copilot.buf_is_attached(buf_id) and ' %#FixedLine_Copilot# ' or empty
+    end,
 }

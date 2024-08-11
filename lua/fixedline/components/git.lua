@@ -8,9 +8,9 @@ return {
     end
     return string.format(
       ' %s%s%s',
-      count_to_string(' ', diff.added),
-      count_to_string(' ', diff.changed),
-      count_to_string(' ', diff.removed)
+      count_to_string(' ', diff.added, 'Fixedline_Git_Added'),
+      count_to_string(' ', diff.changed, 'Fixedline_Git_Changed'),
+      count_to_string('󰍴 ', diff.removed, 'Fixedline_Git_Removed')
     )
   end,
 }

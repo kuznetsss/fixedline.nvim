@@ -1,6 +1,8 @@
 local M = {}
 
 M.setup = function()
+    require'fixedline.highlights'.define_default_highlights()
+
     vim.o.statusline = "%!v:lua.require'fixedline.line'.make_line()"
 
     local reload_line = function()
@@ -9,12 +11,9 @@ M.setup = function()
                 package.loaded[k] = nil
             end
         end
-        vim.o.statusline = "%!v:lua.require'fixedline.line'.make_line()"
+        require'fixedline'.setup()
+        vim.o.statusline = "%!v:lua.require'fixedline.line'.make_line()" --
     end
-    vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
-        pattern = { '*.lua' },
-        callback = reload_line,
-    })
     vim.keymap.set('n', '<F9>', reload_line)
 
     vim.api.nvim_create_augroup('Fixedline', { clear = true })

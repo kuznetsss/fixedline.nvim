@@ -3,7 +3,7 @@ local recording_register = nil
 return {
     str = function()
         if recording_register then
-            return string.format(' %s', recording_register)
+            return string.format('%%#FixedLine_RecordingMacro# %s', recording_register)
         end
         return '   '
     end,
