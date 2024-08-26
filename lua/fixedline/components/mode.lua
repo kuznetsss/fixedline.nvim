@@ -45,14 +45,20 @@ local modes_map = setmetatable({
   end,
 })
 
+local get_mode = function(context)
+    if context.is_current then
+        return modes_map[vim.fn.mode()]
+    end
+    return modes_map.n
+end
+
 return {
-  str = function()
-    local mode = vim.fn.mode()
-    local elements = modes_map[mode]
-    return string.format('%%#%s#%s', elements.highlight, elements.str)
+  str = function(context)
+    local mode = get_mode(context)
+    return string.format('%%#%s#%s', mode.highlight, mode.str)
   end,
-  get_highlight = function()
-    local mode = vim.fn.mode()
-    return string.format('%%#%s#', modes_map[mode].highlight)
+  get_highlight = function(context)
+    local mode = get_mode(context)
+    return string.format('%%#%s#', mode.highlight)
   end,
 }

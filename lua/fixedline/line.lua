@@ -1,35 +1,31 @@
 local components = require 'fixedline.components'
 
-local make_active = function(win_id)
+local make_line = function()
+    local win_id = vim.g.statusline_winid
+    local context = {
+        win_id = win_id,
+        buf_id = vim.api.nvim_win_get_buf(win_id),
+        is_current = win_id == vim.api.nvim_get_current_win()
+    }
   return table.concat {
-    components.mode.str(),
-    components.ro.str(),
+    components.mode.str(context),
+    components.ro.str(context),
     '%#FixedLine_Filename# %t ',
-    components.modified.str(),
-    components.git.str(),
+    components.modified.str(context),
+    components.git.str(context),
     '%#StatusLine#%=',
     components.recording_macro.str(),
-    components.copilot.str(win_id),
+    components.copilot.str(context),
     '  ',
-    components.diagnostic.str(win_id),
+    components.diagnostic.str(context),
     '  ',
-    components.filetype.str(),
+    components.filetype.str(context),
     ' ',
-    components.mode.get_highlight(),
+    components.mode.get_highlight(context),
     ' %l:%c | %p%% ',
   }
 end
 
-local cache = {}
-
 return {
-  make_line = function()
-    local win_id = vim.g.statusline_winid
-    if win_id == vim.api.nvim_get_current_win() then
-      local line = make_active(win_id)
-      cache[win_id] = line
-      return line
-    end
-    return cache[win_id] or make_active(win_id)
-  end,
+  make_line = make_line
 }
