@@ -6,4 +6,9 @@ return {
     end
     return string.format(' %%#%s#%s%d', highlight, sign, count)
   end,
+  async_redraw_all_lines = function()
+    vim.schedule(function()
+      vim.cmd 'redrawstatus!'
+    end)
+  end,
 }
