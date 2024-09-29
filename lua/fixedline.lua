@@ -14,7 +14,7 @@ M.setup = function()
       end
     end
     require('fixedline').setup()
-    vim.o.statusline = "%!v:lua.require'fixedline.line'.make_line()" --
+    vim.o.statusline = "%!v:lua.require'fixedline.line'.make_line()"
   end
   vim.keymap.set('n', '<F9>', reload_line)
 
