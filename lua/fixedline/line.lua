@@ -7,7 +7,7 @@ local make_regular_line = function(context)
         '%#FixedLine_Filename# %t ',
         components.modified.str(context),
         components.git.str(context),
-        '%#StatusLine#%=',
+        '%#StatusLine#%=%<',
         components.recording_macro.str(),
         components.copilot.str(context),
         '  ',
